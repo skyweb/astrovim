@@ -64,6 +64,25 @@
 
 ---
 
+## Database / MySQL (vim-dadbod-ui)
+
+| Tasto / Comando | Azione |
+|-----------------|--------|
+| `:DBUI`         | Apri pannello database (albero connessioni) |
+| `:DBUIToggle`   | Toggle pannello DB |
+| `:DBUIAddConnection` | Aggiungi nuova connessione |
+| `Enter` (su tabella) | Apri query editor |
+| `o` (su tabella) | Vedi dati tabella |
+| `<Leader>W`     | Esegui query nel buffer |
+
+**Connessione MySQL (esempio):**
+```
+mysql://utente:password@127.0.0.1:3306/nomedb
+```
+Le connessioni si salvano in `~/.local/share/db_ui/`.
+
+---
+
 ## Docker
 
 | Tasto        | Azione                                        |

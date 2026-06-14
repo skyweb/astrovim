@@ -13,6 +13,9 @@ return {
   -- JavaScript / TypeScript / React / Next.js
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.tailwindcss" },
+  -- Database / SQL
+  { import = "astrocommunity.pack.sql" },
+  { import = "astrocommunity.pack.full-dadbod" },
   -- Docker
   { import = "astrocommunity.docker.lazydocker" },
   -- Git
