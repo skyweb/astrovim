@@ -5,6 +5,28 @@
 
 ---
 
+## AI — Claude (avante.nvim)
+
+> Richiede `ANTHROPIC_API_KEY` nell'ambiente (vedi sotto).
+
+| Tasto        | Azione                                              |
+|--------------|-----------------------------------------------------|
+| `Space A a`  | **Ask** — apre pannello Claude, fai una domanda     |
+| `Space A e`  | **Edit** — modifica il codice selezionato con AI    |
+| `Space A t`  | **Toggle** — mostra/nasconde il pannello Claude     |
+| `Space A r`  | Refresh risposta                                    |
+| `Space A n`  | Nuova conversazione                                 |
+| `Space A h`  | Storico conversazioni                               |
+| `Space A ?`  | Seleziona modello (claude-sonnet, claude-opus, ecc.)|
+| `Space A S`  | Stop generazione                                    |
+
+**Configurazione API key** — aggiungi al `~/.zshrc`:
+```bash
+export ANTHROPIC_API_KEY="sk-ant-..."
+```
+
+---
+
 ## LSP — Navigazione codice
 
 | Tasto        | Azione                                      |

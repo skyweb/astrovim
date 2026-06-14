@@ -1,6 +1,39 @@
 ---@type LazySpec
 return {
 
+  -- ── AI: Avante (Claude / Anthropic) ──────────────────────────────────────
+  {
+    "yetone/avante.nvim",
+    opts = {
+      provider = "claude",
+      auto_suggestions_provider = "claude",
+      claude = {
+        endpoint = "https://api.anthropic.com",
+        model = "claude-sonnet-4-6",
+        timeout = 30000,
+        temperature = 0,
+        max_tokens = 8096,
+      },
+      behaviour = {
+        auto_suggestions = false,
+        auto_set_highlight_group = true,
+        auto_set_keymaps = true,
+        auto_apply_diff_after_generation = false,
+        support_paste_from_clipboard = true,
+      },
+      windows = {
+        position = "right",
+        wrap = true,
+        width = 35,
+        sidebar_header = {
+          align = "center",
+          rounded = true,
+        },
+      },
+      hints = { enabled = true },
+    },
+  },
+
   -- ── Git ──────────────────────────────────────────────────────────────────
   {
     "kdheepak/lazygit.nvim",
