@@ -34,6 +34,35 @@ return {
     },
   },
 
+  -- ── Highlight occorrenze parola sotto cursore (PHP, React, tutti) ────────
+  {
+    "RRethy/vim-illuminate",
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      require("illuminate").configure {
+        providers = { "lsp", "treesitter", "regex" },
+        delay = 100,
+        filetypes_denylist = { "neo-tree", "lazy", "mason", "trouble" },
+        under_cursor = true,
+        large_file_cutoff = 2000,
+      }
+    end,
+    keys = {
+      { "]]", function() require("illuminate").goto_next_reference() end,  desc = "Next reference" },
+      { "[[", function() require("illuminate").goto_prev_reference() end,  desc = "Prev reference" },
+    },
+  },
+
+  -- ── Aerial: pannello funzioni/classi del file (outline) ───────────────────
+  {
+    "stevearc/aerial.nvim",
+    keys = {
+      { "<Leader>lo", "<cmd>AerialToggle<CR>",  desc = "Toggle outline (funzioni)" },
+      { "<Leader>ln", "<cmd>AerialNext<CR>",    desc = "Funzione successiva" },
+      { "<Leader>lp", "<cmd>AerialPrev<CR>",    desc = "Funzione precedente" },
+    },
+  },
+
   -- ── Git ──────────────────────────────────────────────────────────────────
   {
     "kdheepak/lazygit.nvim",

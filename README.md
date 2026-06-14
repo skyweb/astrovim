@@ -131,6 +131,40 @@ terminal/
 
 ---
 
+## Claude AI (avante.nvim)
+
+Il plugin **avante.nvim** integra Claude direttamente in nvim come pannello laterale — simile a Cursor.
+
+### 1. Ottieni l'API key
+
+Vai su [console.anthropic.com](https://console.anthropic.com) → API Keys → Create Key.
+
+### 2. Configura l'API key
+
+Aggiungi al tuo `~/.zshrc` (o `~/.bashrc`):
+
+```bash
+export ANTHROPIC_API_KEY="sk-ant-api03-..."
+```
+
+Poi ricarica:
+```bash
+source ~/.zshrc
+```
+
+### 3. Usa Claude in nvim
+
+| Tasto       | Azione |
+|-------------|--------|
+| `Space A a` | **Ask** — apri pannello e fai una domanda sul codice |
+| `Space A e` | **Edit** — seleziona codice + chiedi una modifica |
+| `Space A t` | **Toggle** — mostra/nasconde il pannello |
+| `Space A ?` | Cambia modello (sonnet, opus, ecc.) |
+
+**Esempio:** seleziona una funzione PHP in Visual mode → `Space A e` → scrivi *"aggiungi validazione e PHPDoc"* → Claude propone le modifiche → accetti con `]c` o rifiuti con `[c`.
+
+---
+
 ## XDebug (PHP / Laravel)
 
 ### Configurazione php.ini

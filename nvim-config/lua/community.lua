@@ -26,6 +26,7 @@ return {
   -- Utility
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.editing-support.nvim-treesitter-endwise" },
+  { import = "astrocommunity.editing-support.nvim-treesitter-context" },
   { import = "astrocommunity.code-runner.overseer-nvim" },
   { import = "astrocommunity.indent.indent-blankline-nvim" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },

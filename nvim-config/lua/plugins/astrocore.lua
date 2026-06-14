@@ -163,6 +163,48 @@ return {
           desc = "Switch right panels / next window",
         },
 
+        -- ── LSP avanzato: call hierarchy + references ───────────────────
+        -- Dove è USATA questa funzione (references in Telescope)
+        ["<Leader>lr"] = {
+          function() require("telescope.builtin").lsp_references() end,
+          desc = "References (dove è usata)",
+        },
+        -- Cosa CHIAMA questa funzione (incoming calls)
+        ["<Leader>li"] = {
+          function() vim.lsp.buf.incoming_calls() end,
+          desc = "Incoming calls (chi chiama questa funzione)",
+        },
+        -- Cosa viene CHIAMATO da questa funzione (outgoing calls)
+        ["<Leader>lO"] = {
+          function() vim.lsp.buf.outgoing_calls() end,
+          desc = "Outgoing calls (cosa chiama questa funzione)",
+        },
+        -- Simboli nel file (funzioni, classi, metodi)
+        ["<Leader>ls"] = {
+          function() require("telescope.builtin").lsp_document_symbols() end,
+          desc = "Simboli nel file",
+        },
+        -- Simboli nel workspace (tutto il progetto)
+        ["<Leader>lS"] = {
+          function() require("telescope.builtin").lsp_workspace_symbols() end,
+          desc = "Simboli nel progetto",
+        },
+        -- Definizioni nel file (Telescope)
+        ["gd"] = {
+          function() require("telescope.builtin").lsp_definitions() end,
+          desc = "Go to definition",
+        },
+        -- Implementazioni
+        ["gi"] = {
+          function() require("telescope.builtin").lsp_implementations() end,
+          desc = "Go to implementation",
+        },
+        -- Type definition
+        ["gy"] = {
+          function() require("telescope.builtin").lsp_type_definitions() end,
+          desc = "Go to type definition",
+        },
+
         -- ── Git extra ───────────────────────────────────────────────────
         ["<Leader>gd"] = { "<cmd>DiffviewOpen<CR>",       desc = "Diffview open" },
         ["<Leader>gD"] = { "<cmd>DiffviewClose<CR>",      desc = "Diffview close" },
