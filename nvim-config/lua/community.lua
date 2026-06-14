@@ -13,6 +13,8 @@ return {
   -- JavaScript / TypeScript / React / Next.js
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.tailwindcss" },
+  -- Docker
+  { import = "astrocommunity.docker.lazydocker" },
   -- Git
   { import = "astrocommunity.git.neogit" },
   { import = "astrocommunity.git.diffview-nvim" },

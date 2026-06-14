@@ -64,6 +64,14 @@
 
 ---
 
+## Docker
+
+| Tasto        | Azione                                        |
+|--------------|-----------------------------------------------|
+| `Space t d`  | Apri LazyDocker (container, log, stats, ecc.) |
+
+---
+
 ## Git
 
 | Tasto        | Azione                             |
