@@ -46,6 +46,7 @@ BREW_PKGS=(
   jq
   php          # PHP 8.x Intel (per Composer + tool PHP)
   node         # fallback se nvm non disponibile
+  trivy        # scanner vulnerabilità container/IaC/dipendenze
 )
 
 for pkg in "${BREW_PKGS[@]}"; do
@@ -69,8 +70,13 @@ fi
 # ── 5. Node.js tools (npm global) ────────────────────────────────────────────
 info "Installazione tool Node.js..."
 NPM_PKGS=(
-  typescript-language-server
+  "@typescript/native-preview"      # tsgo — TypeScript Native Preview (Go, ~10x più veloce)
+  typescript-language-server        # fallback (disabilitato di default, usa tsgo)
   typescript
+  oxlint                            # linter JS/TS ultra-veloce (Rust, >50x più veloce di ESLint)
+  "@stoplight/spectral-cli"         # linter OpenAPI/Swagger (spec 2.0/3.0/3.1)
+  commitizen                        # conventional commits wizard (cz commit)
+  "cz-conventional-changelog"       # adapter conventional commits per commitizen
   "@tailwindcss/language-server"
   intelephense
   prettier
@@ -82,9 +88,17 @@ for pkg in "${NPM_PKGS[@]}"; do
   npm install -g "$pkg" --silent && ok "npm: $pkg"
 done
 
+# Configura commitizen globalmente (adapter conventional-changelog)
+if [ ! -f "$HOME/.czrc" ]; then
+  echo '{ "path": "cz-conventional-changelog" }' > "$HOME/.czrc"
+  ok "commitizen: ~/.czrc configurato"
+else
+  ok "commitizen: ~/.czrc già presente"
+fi
+
 # ── 6. Python tools (pip) ────────────────────────────────────────────────────
 info "Installazione tool Python..."
-PIP_PKGS=(black isort ruff pylint mypy)
+PIP_PKGS=(black isort ruff pylint mypy bandit)
 for pkg in "${PIP_PKGS[@]}"; do
   pip3 install --quiet --user "$pkg" && ok "pip: $pkg"
 done

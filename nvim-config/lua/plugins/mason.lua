@@ -17,6 +17,16 @@ return {
         "json-lsp",
         "yaml-language-server",
         "emmet-language-server",   -- HTML / JSX emmet
+        "lemminx",                 -- XML LSP (Red Hat) — validation, XSD, completion
+        -- vue-language-server installato automaticamente da astrocommunity.pack.vue
+        -- ── Security scanners ─────────────────────────────────────────────
+        "semgrep",                 -- OWASP Top 10, multi-linguaggio
+        "bandit",                  -- vulnerabilità Python
+        "terraform-ls",            -- Terraform LSP (GCP + AWS)
+        "tflint",                  -- Terraform linter
+        "dockerfile-language-server", -- Dockerfile LSP
+        "hadolint",                -- Dockerfile linter
+        "helm-ls",                 -- Helm charts LSP (Kubernetes)
 
         -- ── Python tools ──────────────────────────────────────────────────
         "black",                   -- formatter PEP8

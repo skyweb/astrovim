@@ -5,6 +5,25 @@
 
 ---
 
+## Claude Code CLI (claudecode.nvim)
+
+> Integrazione del CLI `claude` con contesto editor (file aperti, selezioni, diagnostics).
+> Differisce da Avante: apre il vero terminale Claude Code con accesso MCP all'editor.
+
+| Tasto        | Azione                                                  |
+|--------------|---------------------------------------------------------|
+| `Space c c`  | **Toggle** pannello Claude Code (destra, 35%)           |
+| `Space c F`  | Focus sul pannello Claude Code                          |
+| `Space c b`  | Aggiungi buffer corrente al contesto di Claude          |
+| `Space c s`  | Invia **selezione visuale** a Claude *(visual mode)*    |
+| `Space c y`  | **Accetta** diff proposto da Claude                     |
+| `Space c n`  | **Rifiuta** diff proposto da Claude                     |
+| `Space c R`  | Riprendi sessione precedente (`--resume`)               |
+| `Space c C`  | Continua conversazione (`--continue`)                   |
+| `Space c m`  | Seleziona modello Claude                                |
+
+---
+
 ## AI — Claude (avante.nvim)
 
 > Richiede `ANTHROPIC_API_KEY` nell'ambiente (vedi sotto).

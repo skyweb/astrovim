@@ -17,6 +17,8 @@ return {
       },
       disabled = {
         "ts_ls",   -- usa prettierd + eslint_d via none-ls
+        "tsgo",    -- usa prettierd + eslint_d via none-ls
+        "volar",   -- usa prettierd via none-ls
         "html",    -- usa prettierd
         "cssls",   -- usa prettierd
       },
@@ -83,8 +85,9 @@ return {
           },
         },
       },
-      -- TypeScript: Next.js / React + inlay hints
+      -- TypeScript: disabilitato — rimpiazzato da tsgo (TypeScript Native Preview)
       ts_ls = {
+        autostart = false,
         settings = {
           typescript = {
             inlayHints = {

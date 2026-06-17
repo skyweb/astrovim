@@ -206,6 +206,13 @@ return {
         },
 
         -- ── Git extra ───────────────────────────────────────────────────
+        -- Conventional commit via commitizen (richiede: npm i -g commitizen cz-conventional-changelog)
+        ["<Leader>gc"] = {
+          function()
+            Snacks.terminal("cz commit", { cwd = vim.fn.getcwd(), auto_close = false })
+          end,
+          desc = "Conventional commit (commitizen)",
+        },
         ["<Leader>gd"] = { "<cmd>DiffviewOpen<CR>",       desc = "Diffview open" },
         ["<Leader>gD"] = { "<cmd>DiffviewClose<CR>",      desc = "Diffview close" },
         ["<Leader>gh"] = { "<cmd>DiffviewFileHistory<CR>", desc = "File history" },

@@ -85,3 +85,61 @@ autocmd("BufReadPost", {
     end
   end,
 })
+
+-- ── Tab attivo giallo — persiste ad ogni cambio colorscheme ─────────────────
+local tabYellowGroup = augroup("TabActiveYellow", { clear = true })
+autocmd("ColorScheme", {
+  group = tabYellowGroup,
+  pattern = "*",
+  callback = function()
+    local hl = { fg = "#1a1a1a", bg = "#f5c518", bold = true }
+    vim.api.nvim_set_hl(0, "TabLineSel",      hl)
+    vim.api.nvim_set_hl(0, "TabActiveYellow", hl)
+  end,
+})
+
+-- ── Oxlint LSP ───────────────────────────────────────────────────────────────
+-- DISABILITATO: il flag --lsp-server causa exit 1 con la versione npm corrente.
+-- Per abilitare: verifica il comando con `oxlint --help` e aggiorna il cmd qui.
+-- Prerequisito: npm install -g oxlint
+-- if vim.fn.executable "oxlint" == 1 then
+--   vim.lsp.config("oxlint", {
+--     cmd          = { "oxlint", "--lsp-server" },
+--     filetypes    = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+--     root_markers = { ".oxlintrc.json", "package.json", ".git" },
+--     settings     = { fixKind = "all" },
+--   })
+--   vim.lsp.enable "oxlint"
+-- end
+
+-- ── TypeScript Native Preview (tsgo) ─────────────────────────────────────────
+-- Usa la nuova API Neovim 0.11 (vim.lsp.config) invece di lspconfig.
+-- Prerequisito: npm install -g @typescript/native-preview
+if vim.fn.executable "tsgo" == 1 then
+  vim.lsp.config("tsgo", {
+    cmd          = { "tsgo", "--lsp", "--stdio" },
+    filetypes    = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+    root_markers = { "tsconfig.json", "jsconfig.json", "package-lock.json", "yarn.lock", "package.json", ".git" },
+    settings = {
+      typescript = {
+        inlayHints = {
+          includeInlayParameterNameHints                        = "all",
+          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+          includeInlayFunctionParameterTypeHints                = true,
+          includeInlayVariableTypeHints                         = true,
+          includeInlayPropertyDeclarationTypeHints              = true,
+          includeInlayFunctionLikeReturnTypeHints               = true,
+          includeInlayEnumMemberValueHints                      = true,
+        },
+      },
+      javascript = {
+        inlayHints = {
+          includeInlayParameterNameHints         = "all",
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayVariableTypeHints          = true,
+        },
+      },
+    },
+  })
+  vim.lsp.enable "tsgo"
+end
